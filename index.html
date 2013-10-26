@@ -82,7 +82,6 @@
 
 </head>
 <body role="application">
-  <div class="spinner center" id="loadSpinner" style="z-index: 1000;"><div></div></div>
 
   <section data-type="sidebar" id="sidebar_welcome">
     <header>
@@ -116,7 +115,8 @@
         <button data-click="nav" data-click-location="add"><span class="icon" data-icon="compose">New</span></button>
       </menu>
       <h1 class="firetext">Firetext</h1>
-    </header>
+    </header>    
+    <progress max="100" value="0" class="pack-activity light" id="progress" style="position: absolute; z-index: 1000;"></progress>
     <div role="edit" data-type="edit" id="welcome-edit-mode">
       <section>
         <header>

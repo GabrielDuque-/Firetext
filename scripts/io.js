@@ -132,7 +132,7 @@ firetext.io.enumerate = function (directory, callback) {
           firetext.io.save(directory, 'firetext','.temp','A temp file!  You should not be seeing this.  If you see it, please report it to <a href="mailto:support@codexa.org" target="_blank">us</a>.', false, function() {
             firetext.io.delete('firetext.temp');
           });
-          updateFileLists();
+          updateDocLists();
           return;
         } else if (cursor.error.name == 'SecurityError') {
           alert('Please allow Firetext to access your SD card.');
@@ -348,6 +348,9 @@ function saveFromEditor(banner, spinner) {
 }
 
 function loadToEditor(directory, filename, filetype, location, editable) {
+  // Display spinner
+  spinner();
+
   // Clear editor
   doc.innerHTML = '';
   rawEditor.textContent = '';
@@ -421,6 +424,9 @@ function loadToEditor(directory, filename, filetype, location, editable) {
   
       // Show editor
       regions.nav('edit');
+      
+      // Hide spinner
+      spinner('hide');
   
       // Hide save button if autosave is enabled
       if (firetext.settings.get('autosave') != 'false') {

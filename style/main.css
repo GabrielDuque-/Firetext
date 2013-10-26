@@ -349,6 +349,26 @@ aside select.dummy {
     -o-animation: spin .5s steps(30) infinite;
 }
 
+:not(.shown) {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .3s, 0s visibility 0s;
+    -moz-transition: opacity .3s, 0s visibility 0s;
+    -webkit-transition: opacity .3s, 0s visibility 0s;
+    -o-transition: opacity .3s, 0s visibility 0s;
+}
+
+.shown {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, .3s visibility 0s;
+    -moz-transition: opacity .3s, .3s visibility 0s;
+    -webkit-transition: opacity .3s, .3s visibility 0s;
+    -o-transition: opacity .3s, .3s visibility 0s;
+  pointer-events: none;
+}
+
+
 @keyframes spin{
   0%{
     transform: rotate(0turn);

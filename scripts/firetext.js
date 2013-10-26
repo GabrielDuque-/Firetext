@@ -47,7 +47,7 @@ firetext.init = function () {
 
   /* Select important elements for later */
   // Misc
-  loadSpinner = document.getElementById('loadSpinner');
+  loadSpinner = document.getElementById('progress');
   spinner();
   tabDesign = document.getElementById('tab-design');
   tabRaw = document.getElementById('tab-raw');
@@ -207,8 +207,10 @@ function updateDocLists() {
   buildDocList(firetext.recents.get(), [welcomeRecentsList], "Recent Documents", 'internal', true);
   
   // Internal
+  spinner();
   firetext.io.enumerate('/', function(DOCS) {
     buildDocList(DOCS, [welcomeDeviceList, openDialogDeviceList], "Documents Found", 'internal');
+    spinner('hide');
   });
   
   // Cloud
